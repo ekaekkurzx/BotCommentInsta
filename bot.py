@@ -18,8 +18,8 @@ class instagramBot:
 
     def login(self):
         driver = self.driver
-        driver.get('http://www.instagram.com')
-        time.sleep(5)
+        driver.get('https://www.instagram.com')
+        time.sleep(6)
         user_element = driver.find_element_by_xpath("//input[@name='username']")
         user_element.clear()
         user_element.send_keys(self.username)
@@ -27,7 +27,7 @@ class instagramBot:
         password_element.clear()
         password_element.send_keys(self.password)
         password_element.send_keys(Keys.RETURN)
-        time.sleep(5)
+        time.sleep(6)
         x=1
 
         while x:
@@ -68,9 +68,10 @@ class instagramBot:
                 time.sleep(randint(15,60))
                 break
             except Exception:
-                time.sleep(randint(15,50))
+                time.sleep(randint(20,60))
 
 
-robo = instagramBot('username', 'password*','https://www.instagram.com/linkhere')
+robo = instagramBot('YourUsername', 'YourPassword*','https://www.instagram.com/insertyourlink')
 robo.login()
 
+#this is my changes
