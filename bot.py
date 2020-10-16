@@ -19,7 +19,7 @@ class instagramBot:
     def login(self):
         driver = self.driver
         driver.get('https://www.instagram.com')
-        time.sleep(6)
+        time.sleep(10)
         user_element = driver.find_element_by_xpath("//input[@name='username']")
         user_element.clear()
         user_element.send_keys(self.username)
@@ -27,7 +27,7 @@ class instagramBot:
         password_element.clear()
         password_element.send_keys(self.password)
         password_element.send_keys(Keys.RETURN)
-        time.sleep(6)
+        time.sleep(10)
         x=1
 
         while x:
@@ -48,13 +48,13 @@ class instagramBot:
 
         driver = self.driver
         driver.get(link)
-        commentSection = ui.WebDriverWait(self.driver, 10).until(
+        commentSection = ui.WebDriverWait(self.driver, 100).until(
             EC.element_to_be_clickable((By.CSS_SELECTOR, "textarea.Ypffh")))
         self.driver.execute_script("arguments[0].scrollIntoView(true);",
                                    commentSection)
         while (1 == 1):
             try:
-                commentSection = ui.WebDriverWait(self.driver, 10).until(
+                commentSection = ui.WebDriverWait(self.driver, 100).until(
                     EC.element_to_be_clickable((By.CSS_SELECTOR, "textarea.Ypffh")))
                 comment = list[randint(0,(cont-1))]
                 commentSection.send_keys(comment)
@@ -65,13 +65,13 @@ class instagramBot:
                 commentSection.send_keys(' ')
                 commentSection.send_keys(comment)
                 commentSection.send_keys(Keys.ENTER)
-                time.sleep(randint(15,60))
+                time.sleep(randint(100,150))
                 break
             except Exception:
-                time.sleep(randint(20,60))
+                time.sleep(randint(100,150))
 
 
-robo = instagramBot('YourUsername', 'YourPassword*','https://www.instagram.com/insertyourlink')
+robo = instagramBot('InsertYourUsername', 'InsertYourPassword*','https://www.instagram.com/insertyourphotolink')
 robo.login()
 
 #this is my changes
